@@ -20,8 +20,8 @@ if [ ! -d "$DEST_DIR" ]; then
   mkdir -p $DEST_DIR
 fi
 
-# Виконання резервного копіювання
-tar -czf $DEST_DIR/$BACKUP_NAME -C $SOURCE_DIR .
+# Виконання резервного копіювання з виключенням .dat файлів
+tar --exclude='*.dat' -czf $DEST_DIR/$BACKUP_NAME -C $SOURCE_DIR .
 
 # Перевірка успішності створення резервної копії
 if [ $? -eq 0 ]; then
